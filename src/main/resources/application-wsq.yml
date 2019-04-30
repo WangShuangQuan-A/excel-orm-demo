@@ -1,0 +1,19 @@
+wsq:
+  result:
+    base-package: "com.wsq.excel.ormdemo.pojo"
+  sql:
+    resolver: com.wsq.orm.resolver.DefaultSqlResolver
+    batch-max-size: 1000000
+    tables:
+      FAJIANG: fajiang
+      T_TEMPLATE_INFO: T_TEMPLATE_INFO
+    sql-map:
+      fajiang:
+        i_batch: "insert into ${wsq.sql.tables.FAJIANG} (order_id,phone_number,info_num) values (#{order_id},#{phone_number},#{info_num})"
+        q_byInfoNumAndStatus: "select * from ${wsq.sql.tables.FAJIANG} where status = 1 and info_num = #{info_num}"
+      T_TEMPLATE_INFO:
+        q_byNo: "select * from ${wsq.sql.tables.T_TEMPLATE_INFO} where no = #{no} order by sort asc:TemplateInfo"
+
+
+
+

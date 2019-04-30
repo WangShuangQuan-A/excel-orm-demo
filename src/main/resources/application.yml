@@ -1,0 +1,17 @@
+spring:
+  profiles:
+    active: sc_oracle
+    include: wsq
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 10
+logging:
+  level:
+    o*: info
+    c*: info
+    org.springframework.transaction.interceptor: trace
